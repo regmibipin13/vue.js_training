@@ -22,8 +22,10 @@
 					<span v-show="detail.inStock">In Stock</span><br/>	
 					<span>Total Quantity Left: {{ detail.totalQuantity }}</span>
 				</li>
-				<li v-for="variant in variants" :key="variant.id" v-on:mouseover="changeColor(variant.image)">
-					{{ variant.color }}
+				<li v-for="variant in variants" 
+					:key="variant.id" 
+					@mouseover="changeColor(variant.image)" class="colorBox" 
+					:style="{ backgroundColor:variant.color }">
 				</li>
 			</ul>
 			<button class="btn add-to-cart" v-on:click="addToCart">Add To Cart</button>

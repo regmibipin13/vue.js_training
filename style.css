@@ -21,6 +21,11 @@ body {
 	width: 50%;
 	float: right;
 }
+.colorBox {
+	width: 30px;
+	height: 30px;
+	margin-top: 5px;
+}
 .add-to-cart {
 	background: green;
 	color: #fff;
