@@ -21,3 +21,22 @@ body {
 	width: 50%;
 	float: right;
 }
+.add-to-cart {
+	background: green;
+	color: #fff;
+	padding: 15px;
+	cursor: pointer;
+}
+.btn {
+	font-size: 20px;
+}
+.btn:focus {
+	border: none;
+	outline: none;
+}
+.view-cart {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 25px;
+	padding-right: 25px;
+}

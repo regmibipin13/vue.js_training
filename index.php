@@ -16,8 +16,17 @@
 
 		<div class="product-info">
 			<h1>{{ product }}</h1>
-			<h3 v-if="quantity > 0">In stock</h3>
-			<h4 v-else>Out of Stock</h4>
+			<ul>
+				<h3>Specifications</h3>
+				<li v-for="detail in details" :key="detail.quantity">
+					Total Quantity: {{ detail.quantity }}<br />
+					In Stock : {{ detail.inStock }}<br />
+					Discount: {{ detail.discount }}<br />
+					Coupon : {{ detail.coupon }}<br />
+				</li>
+			</ul>
+			<button class="btn add-to-cart" v-on:click="addToCart">Add To Cart</button>
+			<button class="btn view-cart" disabled>My Cart :{{ cartQuantity }}</button>
 		</div>
 
 	</div>

@@ -3,6 +3,20 @@ var app = new Vue({
 	data: {
 		product: 'LP Australia',
 		image:'./img/product.jpg',
-		quantity:10,
+		details:[
+			{
+				coupon:'no coupon',
+				discount: '10%',
+				inStock: true,
+				quantity:10,
+			},
+		],
+		cartQuantity:0,
+	},
+	methods: {
+		addToCart: function() {
+			this.cartQuantity += 1;
+			alert('Item Added to Cart');
+		}
 	}
 });
