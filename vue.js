@@ -3,22 +3,19 @@ var app = new Vue({
 	data: {
 		name: 'LP Australia',
 		brand: 'LoneyPlanet',
-		image:'./img/product.jpg',
-		details:
-		{
-			outOfStock:false,
-			totalQuantity:5,
-		},
+		variantindex:0,
 		variants:[
 			{
-				id:2,
-				color:'black',
-				image:'./img/product.jpg'
-			},
-			{
 				id:1,
+				color:'black',
+				image:'./img/product.jpg',
+				quantity:2,
+			},
+			{	
+				id:2,
 				color:'blue',
-				image:'./img/product2.jpg'
+				image:'./img/product2.jpg',
+				quantity:3,
 			},
 		],
 		cartQuantity:0,
@@ -26,26 +23,31 @@ var app = new Vue({
 	methods: {
 		addToCart: function() {
 			this.cartQuantity += 1;
-			this.details.totalQuantity -= 1;
-			this.checkQuantity();
+			this.variants[this.variantindex].quantity -= 1;
 			// alert('Item Added to Cart');
 		},
-		checkQuantity()
-		{
-			if(this.details.totalQuantity  <= 0) {
-				this.details.outOfStock = true;
-			} else {
-				this.details.outOfStock = false;
-			}
-		},
-		changeColor(img) {
-			this.image = img;
+		changeColor(index) {
+			this.variantindex = index;
 		}
 	},
 	computed: {
 		productTitle()
 		{
 			return this.name + '(' + this.brand + ')';
+		},
+		image()
+		{
+			return this.variants[this.variantindex].image;
+		},
+		totalQuantity() {
+			return this.variants[this.variantindex].quantity;
+		},
+		outOfStock(){
+			if(this.variants[this.variantindex].quantity <= 0) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 });

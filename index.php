@@ -19,16 +19,16 @@
 			<ul>
 				<h3>Specifications</h3>
 				<li>
-					<span v-show="details.outOfStock" style="color: red;">Out of stock</span><br/>	
-					<span>Total Quantity Left: {{ details.totalQuantity }}</span>
+					<span v-show="outOfStock" style="color: red;">Out of stock</span><br/>	
+					<span>Total Quantity Left: {{ totalQuantity }}</span>
 				</li>
-				<li v-for="variant in variants" 
+				<li v-for="(variant, index) in variants" 
 					:key="variant.id" 
-					@mouseover="changeColor(variant.image)" class="colorBox" 
+					@mouseover="changeColor(index)" class="colorBox" 
 					:style="{ backgroundColor:variant.color }">
 				</li>
 			</ul>
-			<button class="btn add-to-cart" @click="addToCart" :disabled="details.outOfStock" :class="{ disableButton: details.outOfStock }">Add To Cart</button>
+			<button class="btn add-to-cart" @click="addToCart" :disabled="outOfStock" :class="{ disableButton: outOfStock }">Add To Cart</button>
 			<button class="btn view-cart" disabled>My Cart :{{ cartQuantity }}</button>
 		</div>
 
