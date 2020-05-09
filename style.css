@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+#navbar {
+	background: black;
+	padding: 20px;
+}
+.product {
+	width: 100%;
+}
+.product-image{
+	float: left;
+	width: 50%;
+}
+.product-image img {
+	max-width: 50%;
+}
+.product-info
+{
+	width: 50%;
+	float: right;
+}
