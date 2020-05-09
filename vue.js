@@ -2,6 +2,7 @@ var app = new Vue({
 	el:'#app',
 	data: {
 		name: 'LP Australia',
+		brand: 'LoneyPlanet',
 		image:'./img/product.jpg',
 		details:
 		{
@@ -39,6 +40,12 @@ var app = new Vue({
 		},
 		changeColor(img) {
 			this.image = img;
+		}
+	},
+	computed: {
+		productTitle()
+		{
+			return this.name + '(' + this.brand + ')';
 		}
 	}
 });

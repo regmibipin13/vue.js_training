@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="product-info">
-			<h1>{{ name }}</h1>
+			<h1>{{ productTitle }}</h1>
 			<ul>
 				<h3>Specifications</h3>
 				<li>
