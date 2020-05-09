@@ -1,15 +1,25 @@
 var app = new Vue({
 	el:'#app',
 	data: {
-		product: 'LP Australia',
+		name: 'LP Australia',
 		image:'./img/product.jpg',
 		details:[
 			{
-				coupon:'no coupon',
-				discount: '10%',
-				inStock: true,
-				quantity:10,
+				inStock:true,
+				totalQuantity:15,
+			}
+		],
+		variants:[
+			{
+				id:1,
+				color:'blue',
+				image:'./img/product2.jpg'
 			},
+			{
+				id:2,
+				color:'black',
+				image:'./img/product.jpg'
+			}
 		],
 		cartQuantity:0,
 	},
@@ -17,6 +27,9 @@ var app = new Vue({
 		addToCart: function() {
 			this.cartQuantity += 1;
 			alert('Item Added to Cart');
+		},
+		changeColor(img) {
+			this.image = img;
 		}
 	}
 });
