@@ -26,6 +26,9 @@ body {
 	height: 30px;
 	margin-top: 5px;
 }
+.disableButton {
+	cursor:not-allowed !important;
+}
 .add-to-cart {
 	background: green;
 	color: #fff;

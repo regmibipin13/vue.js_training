@@ -18,9 +18,9 @@
 			<h1>{{ name }}</h1>
 			<ul>
 				<h3>Specifications</h3>
-				<li v-for="detail in details" :key="detail.quantity">
-					<span v-show="detail.inStock">In Stock</span><br/>	
-					<span>Total Quantity Left: {{ detail.totalQuantity }}</span>
+				<li>
+					<span v-show="details.outOfStock" style="color: red;">Out of stock</span><br/>	
+					<span>Total Quantity Left: {{ details.totalQuantity }}</span>
 				</li>
 				<li v-for="variant in variants" 
 					:key="variant.id" 
@@ -28,7 +28,7 @@
 					:style="{ backgroundColor:variant.color }">
 				</li>
 			</ul>
-			<button class="btn add-to-cart" v-on:click="addToCart">Add To Cart</button>
+			<button class="btn add-to-cart" @click="addToCart" :disabled="details.outOfStock" :class="{ disableButton: details.outOfStock }">Add To Cart</button>
 			<button class="btn view-cart" disabled>My Cart :{{ cartQuantity }}</button>
 		</div>
 
