@@ -28,7 +28,6 @@ Vue.component('product', {
 					<li>Shipping :{{ freeShipping }}</li>
 				</ul>
 				<button class="btn add-to-cart" @click="addToCart" :disabled="outOfStock" :class="{ disableButton: outOfStock }">Add To Cart</button>
-				<button class="btn view-cart" disabled>My Cart :{{ cartQuantity }}</button>
 			</div>
 		</div>
 	</div>
@@ -52,12 +51,11 @@ Vue.component('product', {
 					quantity:3,
 				},
 			],
-			cartQuantity:0,
 		};
 	},
 	methods: {
 		addToCart: function() {
-			this.cartQuantity += 1;
+			this.$emit('add-to-cart');
 			this.variants[this.variantindex].quantity -= 1;
 		},
 		changeColor(index) {
@@ -95,6 +93,13 @@ var app = new Vue({
 	el:'#app',
 	data:{
 		shipping:true,
+		cartQuantity:0,
+	},
+	methods:{
+		updateCart()
+		{
+			this.cartQuantity += 1;
+		}
 	}
 });
 
