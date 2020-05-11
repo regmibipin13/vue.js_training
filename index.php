@@ -7,7 +7,13 @@
 <body>
 <div id="app">
 	<div class="btn view-cart">My Cart :{{ cart.length }}</div>
-	<product :shipping="shipping" @add-to-cart="updateCart"></product>
+	<product 
+		:shipping="shipping" 
+		@add-to-cart="updateCart" 
+		@remove-from-cart="removeFromCart"
+		@empty-cart="emptyCart">
+		
+	</product>
 </div>
 
 

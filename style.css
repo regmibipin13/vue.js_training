@@ -35,6 +35,12 @@ body {
 	padding: 15px;
 	cursor: pointer;
 }
+.remove-from-cart {
+	background: red;
+	color: #fff;
+	padding: 15px;
+	cursor: pointer;
+}
 .btn {
 	font-size: 20px;
 }

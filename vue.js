@@ -28,6 +28,7 @@ Vue.component('product', {
 					<li>Shipping :{{ freeShipping }}</li>
 				</ul>
 				<button class="btn add-to-cart" @click="addToCart" :disabled="outOfStock" :class="{ disableButton: outOfStock }">Add To Cart</button>
+				<button class="btn remove-from-cart" @click="removeFromCart" :disabled="emptyCart" :class="{disableButton: emptyCart}"> Remove This From Cart</button>
 			</div>
 		</div>
 	</div>
@@ -60,7 +61,11 @@ Vue.component('product', {
 		},
 		changeColor(index) {
 			this.variantindex = index;
-		}
+		},
+		removeFromCart() {
+			this.$emit('remove-from-cart',this.variants[this.variantindex].id);
+			this.variants[this.variantindex].quantity += 1;
+		},
 	},
 	computed: {
 		productTitle()
@@ -81,6 +86,9 @@ Vue.component('product', {
 				return false;
 			}
 		},
+		emptyCart() {
+			this.$emit('empty-cart',this.variants[this.variantindex].id);
+		},
 		freeShipping() {
 			if(this.shipping) {
 				return "FREE";
@@ -99,6 +107,17 @@ var app = new Vue({
 		updateCart(id)
 		{
 			this.cart.push(id);
+		},
+		removeFromCart(id) {
+			this.cart.filter(function(item){
+				return item !== id;
+			});
+		},
+		emptyCart(id) {
+			if(this.cart.includes(id)) {
+				return false;
+			}
+			return true;
 		}
 	}
 });
