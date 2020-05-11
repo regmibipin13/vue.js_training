@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="app">
-	<div class="btn view-cart">My Cart :{{ cartQuantity }}</div>
+	<div class="btn view-cart">My Cart :{{ cart }}</div>
 	<product :shipping="shipping" @add-to-cart="updateCart"></product>
 </div>
 

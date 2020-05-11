@@ -55,7 +55,7 @@ Vue.component('product', {
 	},
 	methods: {
 		addToCart: function() {
-			this.$emit('add-to-cart');
+			this.$emit('add-to-cart',this.variants[this.variantindex].id);
 			this.variants[this.variantindex].quantity -= 1;
 		},
 		changeColor(index) {
@@ -93,12 +93,12 @@ var app = new Vue({
 	el:'#app',
 	data:{
 		shipping:true,
-		cartQuantity:0,
+		cart:[],
 	},
 	methods:{
-		updateCart()
+		updateCart(id)
 		{
-			this.cartQuantity += 1;
+			this.cart.push(id);
 		}
 	}
 });
